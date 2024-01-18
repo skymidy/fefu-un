@@ -1,0 +1,404 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', sans-serif;
+}
+
+body {
+    background: #FFF;
+}
+
+/* header */
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.menu__list {
+    display: flex;
+    gap: 47px;
+}
+
+.menu__list-link {
+    color: #FFC9C9;
+    font-weight: 400;
+}
+
+.menu__list-link:hover {
+    color: #FF6668;
+    transition: all .2 ease-in-out;
+}
+
+.header_logo {
+    position: inherit;
+    flex-shrink: 0;
+    width: 97px;
+    height: 107px;
+    position: relative;
+}
+
+.menu__list {
+    display: flex;
+    gap: 47px;
+}
+
+.menu__list-link {
+    color: #FFC9C9;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.title {
+    color: #4036ED;
+}
+
+
+.anketa {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    border-radius: 30px;
+    width: 1040px;
+    height: 500px;
+    border: 2px solid #4036ED;
+    margin-left: 30px;
+    margin-bottom: 40px;
+
+}
+
+.containerr {
+    margin-bottom: 50px;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    padding-top: 100px;
+}
+
+.card_image {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    padding: 3px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.card_image .card_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8%;
+
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    margin-left: 26px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 26px;
+}
+
+.first_name {
+    color: blue;
+    margin-top: 30px;
+    white-space: nowrap;
+}
+
+.group {
+    color: #FFC9C9;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.desc {
+    color: #D9D9D9;
+    width: 500px;
+    margin-top: 10px;
+}
+
+.l {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+
+}
+
+.looking {
+    float: left;
+    background-color: #FFC9C9;
+    height: 25px;
+    width: 45px;
+    border-radius: 100px;
+    padding: 16px 62px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 2px;
+}
+
+.sign {
+    float: left;
+    background-color: #9596FF;
+    height: 25px;
+    width: 45px;
+    border-radius: 100px;
+    padding: 16px 62px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    display: flex;
+    margin-right: 2px;
+    margin-bottom: 2px;
+
+}
+
+.bad_hab {
+    float: left;
+    background-color: #FCD16C;
+    height: 25px;
+    width: 45px;
+    border-radius: 100px;
+    padding: 16px 62px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    display: flex;
+    margin-bottom: 2px;
+
+
+}
+
+.hobby div {
+    float: left;
+    background-color: #FCD16C;
+    height: 25px;
+    width: 45px;
+    border-radius: 100px;
+    padding: 16px 62px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 2px;
+
+}
+
+@media (max-width: 1100px) {
+    .anketa {
+        width: 850px;
+        height: 400px;
+    }
+
+    .card_image {
+        height: 400px;
+    }
+
+    .desc {
+        width: 383px;
+        height: 137px;
+    }
+
+    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+        padding: 12px 41px;
+    }
+}
+
+
+@media (max-width: 908px) {
+    .anketa {
+        width: 700px;
+        height: 350px;
+    }
+
+    .info {
+        margin-left: 0;
+    }
+
+    .card_image {
+        height: 342px;
+        width: 280px;
+    }
+
+    .desc {
+        width: 326px;
+        height: 112px;
+    }
+
+    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+        padding: 5px 28px;
+    }
+
+}
+
+
+@media (max-width: 755px) {
+    .anketa {
+        width: 500px;
+        height: 350px;
+    }
+
+    .first_name, .group {
+        font-size: 14px;
+    }
+
+    .card_img {
+        width: 300px;
+        height: 350px;
+    }
+
+    .desc {
+        font-size: 12px;
+        width: 161px;
+        height: 106px;
+
+    }
+
+    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .data {
+        margin-left: 5px;
+    }
+
+}
+
+
+@media (max-width: 555px) {
+
+    .anketa {
+        width: 382px;
+        height: 580px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .card_image {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .first_name, .group, desc, .first, .hobby {
+        margin: 0 auto;
+    }
+
+    .desc {
+        width: 353px;
+        height: 100px;
+    }
+
+    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+        padding: 9px 29px;
+    }
+
+    .l {
+        width: 355px;
+        margin-top: 20px;
+    }
+
+    .data {
+        display: block;
+    }
+
+    .menu__list-link {
+        font-size: 16px;
+    }
+
+    .logo__img {
+        height: 40px;
+        width: 40px;
+    }
+
+}
+
+@media (max-width: 430px) {
+
+    .anketa {
+        width: 293px;
+        height: 483px;
+    }
+
+    .card_image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .desc {
+        width: 282px;
+        height: 97px;
+    }
+
+    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+        padding: 5px 18px;
+    }
+
+    .l {
+        width: 288px;
+    }
+
+
+}
+
+@media (max-width: 365px) {
+    .anketa {
+        width: 260px;
+        height: 425px;
+    }
+
+    .desc {
+        width: 255px;
+        height: 70px;
+    }
+
+    .l {
+        width: 255px;
+        margin: 0 auto;
+    }
+
+    .menu__list-link {
+        font-size: 12px;
+    }
+
+    .logo__img {
+        height: 40px;
+        width: 40px;
+    }
+
+}
+

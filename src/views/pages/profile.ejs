@@ -1,0 +1,182 @@
+<%
+ var data
+ %>
+<div class="wrapper">
+
+    <!--header-->
+
+
+    <main class="contentWrapper">
+
+        <!--title -->
+
+        <section class="top">
+            <h2 class="title2">
+                Place for your photos
+            </h2>
+        </section>
+
+        <!-- swiper -->
+        <section class="sw">
+            <div class="slide-container swiper">
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        <% %>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="/uploads/<%= data.avatar.name%>" alt="" class="card-img">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="form">
+            <section class="ttop">
+                <div class="container_t">
+                    <h2 class="title">
+                        Data
+                    </h2>
+                </div>
+            </section>
+
+            <section class="columns">
+
+                <div class="info">
+                    <aricle class="disc">
+                        <h3 class="gender">Gender</h3>
+                        <h3 class="First name">First name</h3>
+                        <h3 class="Last name">Last name</h3>
+                        <h3 class="Date of birth">Date of birth</h3>
+                        <h3 class="Group">Group</h3>
+                    </aricle>
+                </div>
+
+                <div class="info">
+                    <aricle class="data">
+                        <h3 class="p_data"><%= data.userModel.sex %></h3>
+                        <h3 class="p_data"><%= data.userModel.firstName %></h3>
+                        <h3 class="p_data"><%= data.userModel.lastName %></h3>
+                        <%
+                            var birthDate = (data.userModel ?? "").birthDay.toUTCString().split(" ");
+                            birthDate.pop()
+                            birthDate.pop()
+                        %>
+                        <h3 class="p_data"><%= birthDate.join(" ") %></h3>
+                        <h3 class="p_data"><%= data.userModel.group %></h3>
+                    </aricle>
+                </div>
+            </section>
+        </section>
+
+        <section class="anketa">
+            <section class="ttop">
+                <div class="container_b">
+                    <h2 class="title">
+                        <%= data.userModel.description %>
+                    </h2>
+                </div>
+            </section>
+
+            <div class="look">
+                <h3>What are you looking for?</h3>
+                <div class="looking">
+                    <button class="love">Love</button>
+                    <button class="friendship">Friendship</button>
+                    <button class="cooperation">Cooperation</button>
+                </div>
+
+                <h3 style="margin-top: 40px;">What is your zodiac sign?</h3>
+                <div class="sign">
+                    <button class="Arias">Arias</button>
+                    <button class="Leo">Leo</button>
+                    <button class="Sagittarius">Sagittarius</button>
+                    <button class="Taurus">Taurus</button>
+                    <button class="Virgo">Virgo</button>
+                    <button class="Capricorn">Capricorn</button>
+                    <button class="Pisces">Pisces</button>
+                    <button class="Scorpio">Scorpio</button>
+                    <button class="Cancer">Cancer</button>
+                    <button class="Aquarius">Aquarius</button>
+                    <button class="Libra">Libra</button>
+                    <button class="Gemini">Gemini</button>
+                </div>
+                <h3 style="margin-top: 30px;">Bad habits?</h3>
+                <div class="bad_hab">
+                    <button class="Alcohol">Alcohol</button>
+                    <button class="Nicotine">Nicotine</button>
+                    <button class="healthy">I’m healthy</button>
+                </div>
+
+                <h3 style="margin-top: 30px;">Choose your hobbies</h3>
+                <div class="hobby">
+                    <button class="h-1">Sport</button>
+                    <button class="h-2">Music</button>
+                    <button class="h-3">Anime</button>
+                    <button class="h-4">Board games</button>
+                    <button class="h-5">Computer games</button>
+                    <button class="h-6">Mental health</button>
+                    <button class="h-7">Fashion</button>
+                    <button class="h-8">Healthy food</button>
+                    <button class="h-9">Cooking</button>
+                    <button class="h-10">Dance</button>
+                    <button class="h-11">Design</button>
+                    <button class="h-12">Travel</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<script>
+    <%
+        let tags = []
+        data.tags.forEach((v)=>{tags.push(v.title)})
+    %>
+    <%- "let activeTags = [\""%><%- tags.join("\",\"") %><%- "\"];"%>
+</script>
+<script>
+    let inputs = document.querySelectorAll(".look button");
+    inputs.forEach((node)=>{
+        if(activeTags.includes(node.innerHTML.toLowerCase())){
+            node.addEventListener("click",async ()=>{
+                let data = await fetch("/api/removeTagToUser", {
+                    method: "POST",
+                    body: JSON.stringify({title:node.innerHTML.toLowerCase()}),
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json;charset=UTF-8",
+                    },
+                })
+                await sleep(1000);
+                if (data.status === 201)
+                    window.location.reload()
+            })
+        }else{
+
+            node.setAttribute("style", "background: grey");
+            node.addEventListener("click",async ()=>{
+                let data = await fetch("/api/addTagToUser", {
+                    method: "POST",
+                    body: JSON.stringify({title:node.innerHTML.toLowerCase()}),
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json;charset=UTF-8",
+                    },
+                })
+                await sleep(1000);
+                if (data.status === 201)
+                    window.location.reload()
+            })
+        }
+    })
+</script>

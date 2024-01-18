@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="box">
+        <div class="box__register">
+            <h1 class="card_title">WELCOME TO FEFU UNION</h1>
+            <p class="card_p">A place where you find love, friendship or cooperation</p>
+
+            <form id="registration-form">
+                <input id="email" type="email">
+                <input id="password" type="password">
+                <button id="login" class="sing">
+                    <i class="fa fa-unlock"></i>
+                    <span>Sing in</span>
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    let registrationForm = document.querySelector("form#registration-form");
+    registrationForm.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        let email = ev.target.querySelector("#email").value;
+        let password = ev.target.querySelector("#password").value;
+
+        let data = await fetch("/api/login", {
+            method: "POST",
+            body: JSON.stringify({email, password}),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json;charset=UTF-8",
+            },
+        })
+        await sleep(1000);
+        if (data.status === 200)
+            window.location.replace("/profile");
+        else alert("Login error");
+
+    });
+</script>

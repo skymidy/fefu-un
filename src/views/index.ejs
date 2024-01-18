@@ -1,0 +1,16 @@
+<%
+var data
+%>
+<!DOCTYPE html>
+<html lang="ru">
+<%- include('parts/core', {title: title}); %>
+
+<body>
+<% if(title !== "registration") { %>
+    <%- include('parts/navigation'); %>
+<% } %>
+<%- include('pages/'+title, {data: data}); %>
+
+<%- include('parts/footer'); %>
+</body>
+</html>
