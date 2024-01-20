@@ -43,10 +43,6 @@
         "pisces", "scorpio", "cancer", "aquarius", "libra", "gemini",];
     let bad_hab = ["alcohol", "nicotine", "healthy",];
 
-    function capitalizeFirstLetter(s) {
-        return s.charAt(0).toUpperCase() + s.slice(1);
-    }
-
     activeTags.forEach((v) => {
         switch (true) {
             case looking.find((vv) => vv === v) !== undefined:

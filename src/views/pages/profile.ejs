@@ -8,14 +8,6 @@
 
     <main class="contentWrapper">
 
-        <!--title -->
-
-        <section class="top">
-            <h2 class="title2">
-                Place for your photos
-            </h2>
-        </section>
-
         <!-- swiper -->
         <section class="sw">
             <div class="slide-container swiper">
@@ -45,7 +37,7 @@
             <section class="ttop">
                 <div class="container_t">
                     <h2 class="title">
-                        Data
+                        <%= (langue? langue["Data"] : "Data") %>
                     </h2>
                 </div>
             </section>
@@ -54,23 +46,24 @@
 
                 <div class="info">
                     <aricle class="disc">
-                        <h3 class="gender">Gender</h3>
-                        <h3 class="First name">First name</h3>
-                        <h3 class="Last name">Last name</h3>
-                        <h3 class="Date of birth">Date of birth</h3>
-                        <h3 class="Group">Group</h3>
+                        <h3 class="gender"><%= (langue? langue["Gender"] : "Gender") %></h3>
+                        <h3 class="First name"><%= (langue? langue["First name"] : "First name") %></h3>
+                        <h3 class="Last name"><%= (langue? langue["Last name"] : "Last name") %></h3>
+                        <h3 class="Date of birth"><%= (langue? langue["Date of birth"] : "Date of birth") %></h3>
+                        <h3 class="Group"><%= (langue? langue["Group"] : "Group") %></h3>
                     </aricle>
                 </div>
 
                 <div class="info">
                     <aricle class="data">
-                        <h3 class="p_data"><%= data.userModel.sex %></h3>
+                        <h3 class="p_data"><%= langue? langue[data.userModel.sex] : data.userModel.sex %></h3>
                         <h3 class="p_data"><%= data.userModel.firstName %></h3>
                         <h3 class="p_data"><%= data.userModel.lastName %></h3>
                         <%
                             var birthDate = (data.userModel ?? "").birthDay.toUTCString().split(" ");
                             birthDate.pop()
                             birthDate.pop()
+                            birthDate.shift()
                         %>
                         <h3 class="p_data"><%= birthDate.join(" ") %></h3>
                         <h3 class="p_data"><%= data.userModel.group %></h3>
@@ -89,49 +82,49 @@
             </section>
 
             <div class="look">
-                <h3>What are you looking for?</h3>
+                <h3><%= (langue? langue["What are you looking for?"] : "What are you looking for?") %></h3>
                 <div class="looking">
-                    <button class="love">Love</button>
-                    <button class="friendship">Friendship</button>
-                    <button class="cooperation">Cooperation</button>
+                    <button class="love"><%= (langue? langue["love"] : "Love") %></button>
+                    <button class="friendship"><%= (langue? langue["friendship"] : "Friendship") %></button>
+                    <button class="cooperation"><%= (langue? langue["cooperation"] : "Cooperation") %></button>
                 </div>
 
-                <h3 style="margin-top: 40px;">What is your zodiac sign?</h3>
+                <h3 style="margin-top: 40px;"><%= (langue? langue["What is your zodiac sign?"] : "What is your zodiac sign?") %></h3>
                 <div class="sign">
-                    <button class="Arias">Arias</button>
-                    <button class="Leo">Leo</button>
-                    <button class="Sagittarius">Sagittarius</button>
-                    <button class="Taurus">Taurus</button>
-                    <button class="Virgo">Virgo</button>
-                    <button class="Capricorn">Capricorn</button>
-                    <button class="Pisces">Pisces</button>
-                    <button class="Scorpio">Scorpio</button>
-                    <button class="Cancer">Cancer</button>
-                    <button class="Aquarius">Aquarius</button>
-                    <button class="Libra">Libra</button>
-                    <button class="Gemini">Gemini</button>
+                    <button class="Arias" id="Arias"><%= (langue? langue["arias"] : "Arias") %></button>
+                    <button class="Leo" id="Leo"><%= (langue? langue["leo"] : "Leo") %></button>
+                    <button class="Sagittarius" id="Sagittarius"><%= (langue? langue["sagittarius"] : "Sagittarius") %></button>
+                    <button class="Taurus" id="Taurus"><%= (langue? langue["taurus"] : "Taurus") %></button>
+                    <button class="Virgo" id="Virgo"><%= (langue? langue["virgo"] : "Virgo") %></button>
+                    <button class="Capricorn" id="Capricorn"><%= (langue? langue["capricorn"] : "Capricorn") %></button>
+                    <button class="Pisces" id="Pisces"><%= (langue? langue["pisces"] : "Pisces") %></button>
+                    <button class="Scorpio" id="Scorpio"><%= (langue? langue["scorpio"] : "Scorpio") %></button>
+                    <button class="Cancer" id="Cancer"><%= (langue? langue["cancer"] : "Cancer") %></button>
+                    <button class="Aquarius" id="Aquarius"><%= (langue? langue["aquarius"] : "Aquarius") %></button>
+                    <button class="Libra" id="Libra"><%= (langue? langue["libra"] : "Libra") %></button>
+                    <button class="Gemini" id="Gemini"><%= (langue? langue["gemini"] : "Gemini") %></button>
                 </div>
-                <h3 style="margin-top: 30px;">Bad habits?</h3>
+                <h3 style="margin-top: 30px;"><%= (langue? langue["Bad habits?"] : "Bad habits?") %></h3>
                 <div class="bad_hab">
-                    <button class="Alcohol">Alcohol</button>
-                    <button class="Nicotine">Nicotine</button>
-                    <button class="healthy">I’m healthy</button>
+                    <button class="Alcohol" id="Alcohol"><%= (langue? langue["alcohol"] : "Alcohol") %></button>
+                    <button class="Nicotine" id="Nicotine"><%= (langue? langue["nicotine"] : "Nicotine") %></button>
+                    <button class="healthy" id="Healthy"><%= (langue? langue["I’m healthy"] : "I’m healthy") %></button>
                 </div>
 
-                <h3 style="margin-top: 30px;">Choose your hobbies</h3>
+                <h3 style="margin-top: 30px;"><%= (langue? langue["Choose your hobbies"] : "Choose your hobbies") %></h3>
                 <div class="hobby">
-                    <button class="h-1">Sport</button>
-                    <button class="h-2">Music</button>
-                    <button class="h-3">Anime</button>
-                    <button class="h-4">Board games</button>
-                    <button class="h-5">Computer games</button>
-                    <button class="h-6">Mental health</button>
-                    <button class="h-7">Fashion</button>
-                    <button class="h-8">Healthy food</button>
-                    <button class="h-9">Cooking</button>
-                    <button class="h-10">Dance</button>
-                    <button class="h-11">Design</button>
-                    <button class="h-12">Travel</button>
+                    <button class="h-1" id="Sport"><%= (langue? langue["sport"] : "Sport") %></button>
+                    <button class="h-2" id="Music"><%= (langue? langue["music"] : "Music") %></button>
+                    <button class="h-3" id="Anime" ><%= (langue? langue["anime"] : "Anime") %></button>
+                    <button class="h-4" id="Board games"><%= (langue? langue["board games"] : "Board games") %></button>
+                    <button class="h-5" id="Computer games"><%= (langue? langue["computer games"] : "Computer games") %></button>
+                    <button class="h-6" id="Mental health"><%= (langue? langue["mental health"] : "Mental health") %></button>
+                    <button class="h-7" id="fashion"><%= (langue? langue["fashion"] : "Fashion") %></button>
+                    <button class="h-8" id="healthy food"><%= (langue? langue["healthy food"] : "Healthy food") %></button>
+                    <button class="h-9" id="cooking"><%= (langue? langue["cooking"] : "Cooking") %></button>
+                    <button class="h-10" id="dance"><%= (langue? langue["dance"] : "Dance") %></button>
+                    <button class="h-11" id="design"><%= (langue? langue["design"] : "Design") %></button>
+                    <button class="h-12" id="travel"><%= (langue? langue["travel"] : "Travel") %></button>
                 </div>
             </div>
         </section>
@@ -147,7 +140,7 @@
 <script>
     let inputs = document.querySelectorAll(".look button");
     inputs.forEach((node)=>{
-        if(activeTags.includes(node.innerHTML.toLowerCase())){
+        if(activeTags.includes(node.id.toLowerCase())){
             node.addEventListener("click",async ()=>{
                 let data = await fetch("/api/removeTagToUser", {
                     method: "POST",

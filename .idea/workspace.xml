@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938748f7-44f8-40b5-a9cf-1fca2ee129fa" name="Changes" comment="init">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/ribbon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/ribbon.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/ribbon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/profile.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/profile_card.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/profile_card.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/reciprocity.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/reciprocity.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/ribbon.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/ribbon.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/parts/core.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/parts/core.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/parts/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/parts/footer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/parts/navigation.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/parts/navigation.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +30,26 @@
       <list>
         <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;skymidy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="42676405-85b9-424c-80b6-09270b4ec23f" />
+        <option name="url" value="https://github.com/skymidy/fefu-un.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,23 +62,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/FeFuTinder/express-ts/src/Models",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\FeFuTinder\\express-ts\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/FeFuTinder/express-ts/src/Models&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\FeFuTinder\\express-ts\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\FeFuTinder\express-ts\src\Models" />
@@ -59,9 +87,9 @@
       <recent name="C:\FeFuTinder\express-ts\src\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\FeFuTinder\express-ts\src\views\parts" />
       <recent name="C:\FeFuTinder\express-ts\src\views\pages" />
       <recent name="C:\FeFuTinder\express-ts\src\views" />
-      <recent name="C:\FeFuTinder\express-ts\src\views\parts" />
     </key>
   </component>
   <component name="RunManager">
@@ -87,7 +115,8 @@
       <workItem from="1705309527541" duration="6291000" />
       <workItem from="1705382076670" duration="6576000" />
       <workItem from="1705462660575" duration="21490000" />
-      <workItem from="1705532269181" duration="14515000" />
+      <workItem from="1705532269181" duration="15287000" />
+      <workItem from="1705718494470" duration="17960000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -105,11 +134,38 @@
       <option name="project" value="LOCAL" />
       <updated>1705550382152</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init">
+      <option name="closed" value="true" />
+      <created>1705550429932</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705550429932</updated>
+    </task>
+    <task id="LOCAL-00004" summary="init">
+      <option name="closed" value="true" />
+      <created>1705550434175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705550434175</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />

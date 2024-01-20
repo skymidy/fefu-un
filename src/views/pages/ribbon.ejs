@@ -5,104 +5,92 @@ var data
     <div class="main">
         <div class="containerr">
 
-            <h1 class="title"> PROFILE </h1>
+            <h1 class="title"> <%= (langue? langue["Ribbon"] : "Ribbon") %> </h1>
         </div>
-        <% if( data.userModel !== null) {%>
-            <div class="anketa">
-                <div class="card_image">
-                    <img class="card_img" src="/uploads/<%= data.avatar?.name ?? "placeholder.png" %>" alt="">
-                </div>
-                <div class="data">
-                    <div class="info">
-                        <h2 class="first_name">
-                            <%
-                                var birthDate = (data.userModel ?? "").birthDay.toUTCString().split(" ");
-                                birthDate.pop()
-                                birthDate.pop()
-                            %>
-                            <%= data.userModel.firstName + " " + data.userModel.lastName + " " + birthDate.join(" ") %>
-                        </h2>
-                        <h2 class="group"><%= data.userModel.group %></h2>
-                        <p class="desc"><%= data.userModel.description %></p>
-                    </div>
-
-                    <div class="l">
-                        <div class="first">
-                            <div class="looking"><p></p></div>
-                            <div class="sign"><p></p></div>
-                            <div class="bad_hab"><p></p></div>
-                        </div>
-                        <div class="hobby">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <% } else { %>
-            <p>no pairs :'(</p>
-            <br>
-        <% }%>
+        <div id="swiper"></div>
+        <br>
+        <br>
+        <button id="button-like" class="like"><%= (langue? langue["Like"] : "Like") %></button>
     </div>
-
-    <% if( data.userModel !== null) {%>
-    <button id="button-like" class="like">Like</button>
-    <button id="button-dislike" class="dislike">Dislike</button>
-    <% } %>
 </div>
-<script>
-    <%
-    let tags = []
-    data.tags?.forEach((v) => {
-        tags.push(v.title)
-    })
-    %>
-    <%- "let activeTags = [\"" %><%- tags.join("\",\"") %><%- "\"];" %>
-</script>
+<script src="/js/card.js"></script>
+<script src="/js/ribbon.js"></script>
 
 <script>
-    let looking = ["love", "friendship", "cooperation"];
-    let sign = ["arias", "leo", "sagittarius", "taurus", "virgo", "capricorn",
-        "pisces", "scorpio", "cancer", "aquarius", "libra", "gemini",];
-    let bad_hab = ["alcohol", "nicotine", "healthy",];
+    let userIds = []
+    // DOM
+    const swiperDiv = document.querySelector('#swiper')
 
-    function capitalizeFirstLetter(s) {
-        return s.charAt(0).toUpperCase() + s.slice(1);
+    let cardCount = 0
+
+    // functions
+
+    async function appendNewCard() {
+        let userId = userIds.pop()
+        if(userId) {
+            let user = await (await fetch("/api/user/" + userId, {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json;charset=UTF-8",
+                },
+            })).json()
+            const card = new Card(
+                appendNewCard,
+                user
+            )
+
+            swiperDiv.append(card.element)
+            cardCount++
+        }
+        const cards = swiperDiv.querySelectorAll('.card:not(.dismissing)')
+        cards.forEach((card, index) => {
+            card.style.setProperty('--i', index)
+        })
     }
 
-    activeTags.forEach((v) => {
-        switch (true) {
-            case looking.find((vv) => vv === v) !== undefined:
-                document.querySelector(".looking").firstElementChild.innerHTML = capitalizeFirstLetter(v);
-                break;
-            case sign.find((vv) => vv === v) !== undefined:
-                document.querySelector(".sign").firstElementChild.innerHTML = capitalizeFirstLetter(v);
-                break;
-            case bad_hab.find((vv) => vv === v) !== undefined:
-                document.querySelector(".bad_hab").firstElementChild.innerHTML = capitalizeFirstLetter(v);
-                break;
-            default:
-                let hobby = document.querySelector(".hobby");
-                let p = document.createElement("p");
-                p.innerHTML = capitalizeFirstLetter(v);
-                let div = document.createElement("div");
-                div.appendChild(p)
-                hobby.appendChild(div);
-                break;
+    fetch("/api/ribbon", {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json;charset=UTF-8",
+        },
+    }).then(async (data) => {
+        userIds.push(...(await data.json()))
+        console.log(userIds)
+        for (let i = 0; i < 5; i++) {
+            appendNewCard();
         }
     })
 
 
-</script>
+    const onClickFunc = (id) => {
+        const card = document.getElementById(id)
+        card.style.transition = 'transform 0.5s'
+        card.style.transform = `
+            translate(
+                ${290}px,
+                ${-window.innerHeight}px
+                )
+            rotate(${90}deg)
+            `
+        card.classList.add('dismissing')
+        setTimeout(() => {
+            card.remove()
 
-<script>
+        }, 500)
+
+        appendNewCard()
+
+        console.log(card)
+    }
     const action = async (e) => {
-        let url;
-        if (e.target.className === "like") {
-            url = "/api/like/add"
-        } else
-            url = "/api/dislike/add"
-        let data = await fetch(url, {
+
+        let topUser = swiperDiv.firstElementChild.id;
+
+        let data = await fetch("/api/like/add", {
             method: "POST",
-            body: JSON.stringify({userId:<%- data.userModel?.id ?? -1%>}),
+            body: JSON.stringify({userId: topUser}),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json;charset=UTF-8",
@@ -110,8 +98,8 @@ var data
         })
         await sleep(1000);
         if (data.status === 201)
-            window.location.reload()
+            onClickFunc(topUser)
+        else alert("error on "+data.status+" \"/api/like/add\"")
     }
     document.querySelector(".like").addEventListener("click", action);
-    document.querySelector(".dislike").addEventListener("click", action);
 </script>

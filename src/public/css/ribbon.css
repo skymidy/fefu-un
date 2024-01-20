@@ -103,16 +103,15 @@ a {
     height: 500px;
     width: 500px;
     padding: 3px;
-    border-radius: 50%;
+    border-radius: 8%;
     background: #fff;
+    overflow: clip;
 }
 
-.card_image .card_img {
+.card_image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 8%;
-
 }
 
 .data {
@@ -244,7 +243,37 @@ button {
 
 }
 
-@media (max-width: 1100px) {
+
+#swiper {
+    max-width: 1000px;
+    aspect-ratio: 5 / 3;
+    perspective: 1000px;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    transform: translateZ(calc(-30px * var(--i))) translateY(calc(-20px * var(--i))) rotate(calc(-4deg * var(--i)));
+    transition: transform .5s;
+    filter: drop-shadow(2px 2px 20px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+    user-select: none;
+    background: white;
+
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 30px;
+    border: 2px solid #4036ED;
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 908px) {
     .anketa {
         width: 850px;
         height: 400px;
@@ -256,88 +285,28 @@ button {
 
     .desc {
         width: 383px;
-        height: 137px;
     }
 
-    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+    .looking, .bad_hab, .sign, .hobby div {
         padding: 12px 41px;
     }
 }
 
 
-@media (max-width: 908px) {
-    .anketa {
-        width: 700px;
-        height: 350px;
-    }
+@media (max-width: 600px) {
 
-    .info {
-        margin-left: 0;
-    }
-
-    .card_image {
-        height: 342px;
-        width: 280px;
-    }
-
-    .desc {
-        width: 326px;
-        height: 112px;
-    }
-
-    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
-        padding: 5px 28px;
-    }
-
-}
-
-
-@media (max-width: 755px) {
-    .anketa {
-        width: 500px;
-        height: 350px;
-    }
-
-    .first_name, .group {
-        font-size: 14px;
-    }
-
-    .card_img {
-        width: 300px;
-        height: 350px;
-    }
-
-    .desc {
-        font-size: 12px;
-        width: 161px;
-        height: 106px;
-
-    }
-
-    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
-        padding: 5px 8px;
-        font-size: 14px;
-    }
-
-    .data {
-        margin-left: 5px;
-    }
-
-}
-
-
-@media (max-width: 555px) {
-
-    .anketa {
-        width: 382px;
-        height: 580px;
+    .card {
         display: block;
-        margin: 0 auto;
     }
 
+    #swiper {
+        aspect-ratio: 2 / 3;
+    }
+
+
     .card_image {
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
     }
 
@@ -347,10 +316,9 @@ button {
 
     .desc {
         width: 353px;
-        height: 100px;
     }
 
-    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+    .looking, .bad_hab, .sign, .hobby div {
         padding: 9px 29px;
     }
 
@@ -376,23 +344,12 @@ button {
 
 @media (max-width: 430px) {
 
-    .anketa {
-        width: 293px;
-        height: 483px;
-    }
-
-    .card_image {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-    }
 
     .desc {
         width: 282px;
-        height: 97px;
     }
 
-    .looking, .bad_hab, .sign, .hobby_1, .hobby_2, .hobby_3 {
+    .looking, .bad_hab, .sign, .hobby div {
         padding: 5px 18px;
     }
 
@@ -411,7 +368,6 @@ button {
 
     .desc {
         width: 255px;
-        height: 70px;
     }
 
     .l {
@@ -429,4 +385,3 @@ button {
     }
 
 }
-

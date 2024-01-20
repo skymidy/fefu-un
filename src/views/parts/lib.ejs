@@ -1,12 +1,4 @@
 <%
-var data
-%>
-<!DOCTYPE html>
-<html lang="ru">
-<%- include('parts/core', {title: title}); %>
-
-<body>
-<%
 var lang
 var en = undefined
 var ru = {
@@ -45,7 +37,6 @@ var ru = {
     "Reciprocity": "Избранное",
     "Like": "В избранное",
     "Delete": "Удалить",
-    "Data": "Данные",
     "Gender": "Пол",
     "First name": "Имя",
     "Last name": "Фамилия",
@@ -55,9 +46,7 @@ var ru = {
     "What is your zodiac sign?": "Знак зодика",
     "Bad habits?": "Вредные привычки",
     "Choose your hobbies": "Хобби",
-    "I’m healthy": "Я здоровый",
-    "female": "ж",
-    "male": "м"
+    "I’m healthy": "Я здоровый"
 }
 var langue = lang === "ru" ? ru : en;
 %>
@@ -102,34 +91,7 @@ var langue = lang === "ru" ? ru : en;
 
 
     function capitalizeFirstLetter(s) {
-        s = langue? langue[s] : s;
+        s = langue[s]? langue[s] : s;
         return s.charAt(0).toUpperCase() + s.slice(1);
     }
 </script>
-<% if(title !== "registration") { %>
-    <%- include('parts/navigation',{ langue: langue}); %>
-
-    <script>
-        let selector = document.getElementById("lang-switch")
-        selector.selectedIndex = lang === "ru" ? 1 : 0
-        selector.addEventListener("change", async (e)=>{
-
-            let data = await fetch("/api/lang", {
-                method: "POST",
-                body: JSON.stringify({lang:e.target.selectedIndex === 1 ? "ru":"en"}),
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json;charset=UTF-8",
-                },
-            })
-            await sleep(500);
-            if (data.status === 201)
-                window.location.reload()
-        })
-    </script>
-<% } %>
-<%- include('pages/'+title, {data: data, langue: langue}); %>
-
-<%- include('parts/footer'); %>
-</body>
-</html>

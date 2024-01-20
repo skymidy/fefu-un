@@ -7,7 +7,7 @@ var data
 
     <section class="top">
         <h2 class="title2">
-            RECIPROCITY
+            <%= (langue? langue["Reciprocity"] : "Reciprocity") %>
         </h2>
     </section>
 
@@ -42,8 +42,8 @@ var data
                                 </div>
 
                                 <div class="btn">
-                                    <button class="Profile" data-id="<%= user.id %>">Profile</button>
-                                    <button class="Delete" data-id="<%= user.id %>">Delete</button>
+                                    <button class="Profile" data-id="<%= user.id %>"><%= (langue? langue["Profile"] : "Profile") %></button>
+                                    <button class="Delete" data-id="<%= user.id %>"><%= (langue? langue["Delete"] : "Delete") %></button>
                                 </div>
 
                             </div>
